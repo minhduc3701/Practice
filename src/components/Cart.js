@@ -4,9 +4,9 @@ import CartItem from "./CartItem";
 class Cart extends React.Component {
   render() {
     return (
-      <section class="section">
-        <div class="table-responsive">
-          <table class="table product-table">
+      <section className="section">
+        <div className="table-responsive">
+          <table className="table product-table">
             <thead>
               <tr>
                 <th></th>
