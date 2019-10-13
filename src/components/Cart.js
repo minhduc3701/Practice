@@ -3,6 +3,7 @@ import CartItem from "./CartItem";
 
 class Cart extends React.Component {
   render() {
+    let { children } = this.props;
     return (
       <section className="section">
         <div className="table-responsive">
@@ -17,9 +18,7 @@ class Cart extends React.Component {
                 <th></th>
               </tr>
             </thead>
-            <tbody>
-              <CartItem></CartItem>
-            </tbody>
+            <tbody>{children}</tbody>
           </table>
         </div>
       </section>
