@@ -3,7 +3,6 @@ import React from "react";
 class Message extends React.Component {
   render() {
     let { message } = this.props;
-    console.log(message);
     return (
       <h3>
         <span className="badge amber darken-2">{message}</span>

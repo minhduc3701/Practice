@@ -1,14 +1,15 @@
 import * as types from "../constants/ActionTypes";
 
-export const actAddCart = cart => {
+export const actAddCart = (product, quantity) => {
   return {
     type: types.ADD_CART,
-    cart
+    product,
+    quantity
   };
 };
-export const actChangeMessage = cart => {
+export const actChangeMessage = message => {
   return {
     type: types.CHANGE_MESSAGE,
-    cart
+    message
   };
 };
