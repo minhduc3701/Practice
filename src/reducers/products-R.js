@@ -35,6 +35,8 @@ let initialState = [
 
 const products = (state = initialState, action) => {
   switch (action.type) {
+    case types.ADD_CART:
+      return state;
     default:
       return state;
   }

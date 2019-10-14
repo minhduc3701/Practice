@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ProductsContainer from "./containers/ProductsContainer";
-import Message from "./components/Message";
+import MessageContainer from "./containers/MessageContainer";
 import CartContainer from "./containers/CartContainer";
 
 class App extends React.Component {
@@ -13,7 +13,7 @@ class App extends React.Component {
         <main id="mainContainer">
           <div className="container">
             <ProductsContainer></ProductsContainer>
-            <Message></Message>
+            <MessageContainer></MessageContainer>
             <CartContainer></CartContainer>
           </div>
         </main>

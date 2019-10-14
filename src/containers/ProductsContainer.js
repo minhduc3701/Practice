@@ -17,7 +17,6 @@ class ProductsContainer extends React.Component {
 
   render() {
     let { products } = this.props;
-    console.log(products);
     return <Products>{this.showProducts(products)}</Products>;
   }
 }
@@ -34,7 +33,7 @@ export default connect(
 )(ProductsContainer);
 
 ProductsContainer.propTypes = {
-  product: PropTypes.arrayOf(
+  products: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
