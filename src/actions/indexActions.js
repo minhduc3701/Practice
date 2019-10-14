@@ -13,3 +13,9 @@ export const actChangeMessage = message => {
     message
   };
 };
+export const actRemoveCartItem = product => {
+  return {
+    type: types.REMOVE_ITEM_CART,
+    product
+  };
+};
