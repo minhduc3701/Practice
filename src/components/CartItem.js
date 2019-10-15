@@ -9,8 +9,16 @@ class CartItem extends React.Component {
     this.props.onDeleteCartItem(product);
   };
 
+  onUpdateQuantity = (product, quantity) => {
+    let { onUpdateCartItem } = this.props;
+    if (quantity > 0) {
+      onUpdateCartItem(product, quantity);
+    }
+  };
+
   render() {
     let { item } = this.props;
+    let { quantity } = item;
     return (
       <tr>
         <th scope="row">
@@ -27,17 +35,23 @@ class CartItem extends React.Component {
         </td>
         <td>{item.product.price}$</td>
         <td className="center-on-small-only">
-          <span className="qty">{item.quantity} </span>
+          <span className="qty">{quantity} </span>
           <div className="btn-group radio-group" data-toggle="buttons">
             <label
               className="btn btn-sm btn-primary
                             btn-rounded waves-effect waves-light"
+              onClick={() =>
+                this.onUpdateQuantity(item.product, item.quantity - 1)
+              }
             >
               <a>—</a>
             </label>
             <label
               className="btn btn-sm btn-primary
                             btn-rounded waves-effect waves-light"
+              onClick={() =>
+                this.onUpdateQuantity(item.product, item.quantity + 1)
+              }
             >
               <a>+</a>
             </label>

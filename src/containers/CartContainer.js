@@ -7,7 +7,7 @@ import * as Actions from "../actions/indexActions";
 
 class CartContainer extends React.Component {
   showCartItem = cart => {
-    let { onDeleteCartItem } = this.props;
+    let { onDeleteCartItem, onUpdateCartItem } = this.props;
     let result = null;
     if (cart.length > 0) {
       result = cart.map((item, index) => {
@@ -16,6 +16,7 @@ class CartContainer extends React.Component {
             onDeleteCartItem={onDeleteCartItem}
             key={index}
             item={item}
+            onUpdateCartItem={onUpdateCartItem}
           ></CartItem>
         );
       });
@@ -52,6 +53,9 @@ const mapDispatchToProps = (dispatch, props) => {
   return {
     onDeleteCartItem: product => {
       dispatch(Actions.actRemoveCartItem(product));
+    },
+    onUpdateCartItem: (product, quantity) => {
+      dispatch(Actions.actUpdateCart(product, quantity));
     }
   };
 };
