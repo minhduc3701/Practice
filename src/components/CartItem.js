@@ -1,4 +1,5 @@
 import React from "react";
+import * as Messages from "../constants/Message";
 
 class CartItem extends React.Component {
   showSubTotalAmount = (price, quantity) => {
@@ -7,12 +8,14 @@ class CartItem extends React.Component {
 
   onDeleteCartItem = product => {
     this.props.onDeleteCartItem(product);
+    this.props.onChangeMessage(Messages.MSG_DELETE_PRODUCT_IN_CART_SUCCESS);
   };
 
   onUpdateQuantity = (product, quantity) => {
     let { onUpdateCartItem } = this.props;
     if (quantity > 0) {
       onUpdateCartItem(product, quantity);
+      this.props.onChangeMessage(Messages.MSG_UPDATE_CART_SUCCESS);
     }
   };
 

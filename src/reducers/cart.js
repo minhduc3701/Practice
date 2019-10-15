@@ -30,7 +30,6 @@ const cart = (state = initialState, action) => {
       return [...state];
 
     case types.UPDATE_PRODUCT_IN_CART:
-      console.log(action);
       index = findIndexProduct(state, product);
       if (index !== -1) {
         state[index].quantity = quantity;

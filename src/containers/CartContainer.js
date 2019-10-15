@@ -4,11 +4,16 @@ import Cart from "../components/Cart";
 import CartItem from "../components/CartItem";
 import CartResult from "../components/CartResult";
 import * as Actions from "../actions/indexActions";
+import * as Messages from "../constants/Message";
 
 class CartContainer extends React.Component {
   showCartItem = cart => {
-    let { onDeleteCartItem, onUpdateCartItem } = this.props;
-    let result = null;
+    let { onDeleteCartItem, onUpdateCartItem, onChangeMessage } = this.props;
+    let result = (
+      <tr>
+        <td>{Messages.MSG_CART_EMPTY}</td>
+      </tr>
+    );
     if (cart.length > 0) {
       result = cart.map((item, index) => {
         return (
@@ -17,6 +22,7 @@ class CartContainer extends React.Component {
             key={index}
             item={item}
             onUpdateCartItem={onUpdateCartItem}
+            onChangeMessage={onChangeMessage}
           ></CartItem>
         );
       });
@@ -56,6 +62,9 @@ const mapDispatchToProps = (dispatch, props) => {
     },
     onUpdateCartItem: (product, quantity) => {
       dispatch(Actions.actUpdateCart(product, quantity));
+    },
+    onChangeMessage: message => {
+      dispatch(Actions.actChangeMessage(message));
     }
   };
 };
